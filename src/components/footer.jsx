@@ -1,7 +1,8 @@
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer>
-      <p>Copyright &copy; 2023 Reutils</p>
+      <p>Copyright &copy; {currentYear} Reutils</p>
     </footer>
   );
 }
