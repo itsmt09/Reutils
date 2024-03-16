@@ -14,6 +14,10 @@ export default function Todo() {
     setItems((prevItems) => prevItems.filter((i) => i !== item));
     console.log(items);
   }
+  function handleUpdateItem(idx) {
+    const newItem = prompt(`Update this item`);
+    setItems((prevItems) => prevItems.splice(idx, 1, newItem));
+  }
   return (
     <div className="App">
       <h1>Hello React.</h1>
@@ -31,6 +35,7 @@ export default function Todo() {
           <div>
             <li key={idx}>{item}</li>
             <button onClick={() => handleRemoveItems(item)}>Remove</button>
+            <button onClick={() => handleUpdateItem(idx)}>Edit</button>
           </div>
         ))}
       </ul>
