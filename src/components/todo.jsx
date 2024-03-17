@@ -15,8 +15,17 @@ export default function Todo() {
     console.log(items);
   }
   function handleUpdateItem(idx) {
-    const newItem = prompt(`Update this item`);
-    setItems((prevItems) => prevItems.splice(idx, 1, newItem));
+    const newItems = [...items];
+    const item = newItems[idx];
+    let newItem = prompt(`update ${item}`, item);
+    if (newItems.indexOf(newItem) !== -1) {
+      alert("Item Already Exists");
+      console.log(items);
+    } else {
+      newItems.splice(idx, 1, newItem);
+      setItems(newItems);
+    }
+    console.log(items);
   }
   return (
     <div className="App">
